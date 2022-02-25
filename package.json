@@ -1,0 +1,27 @@
+{
+  "name": "tictactoe-app",
+  "version": "1.0.0",
+  "description": "TicTacToe Game Demo For Mithril",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run dev\" \"npm run copytobin\"",
+    "copytobin": "copyfiles -f ./assets/index.html ./src/styles.css ./bin",
+    "copytodist": "copyfiles -f ./assets/index.html ./src/styles.css ./dist",
+    "dev": "webpack ./src/index.js --output-path ./bin --devtool eval-cheap-module-source-map --watch --mode development",
+    "prod": "webpack ./src/index.js --output-path ./dist --mode production",
+    "dist": "concurrently \"npm run prod\" \"npm run copytodist\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "copyfiles": "^2.4.1",
+    "mithril": "^2.0.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
